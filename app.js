@@ -50,7 +50,8 @@ Promise.all([
             d3.select('.selected-drug')
                 //Remove the class hide
                 .classed('hide', false)
-                //insert selected-drug in the span !!! ISSUE: the rest of the list ends up falling below the p tags
+                //insert selected-drug in the span 
+                //!!! ISSUE: the rest of the list ends up falling below the p tags
                 .data(options)
                 .join('option')
                 .attr('class', 'opt')
@@ -72,7 +73,6 @@ Promise.all([
         })
 
     //Filter island data sold at a price less than annualcost variable
-
     dataIsland.map(function(d) {
         if (d['price'] <= ac) {
             dataIsland.map()
