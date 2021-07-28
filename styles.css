@@ -1,0 +1,32 @@
+* {
+    font-family: Helvetica;
+    text-align: center;
+}
+
+p,
+select,
+button {
+    font-size: 1rem;
+    margin: 1rem;
+}
+
+body {
+    background: lightgray;
+}
+
+.hide {
+    display: none;
+}
+
+.island-intro {
+    margin-top: 4rem;
+    width: auto;
+    margin: auto;
+}
+
+.blurb {
+    margin-top: 4rem;
+    width: auto;
+    margin: auto;
+    font-size: 1rem;
+}

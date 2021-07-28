@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicines are not Luxury Goods</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>
+        <center>The Cost of Life-Saving Medicines</center>
+    </h1>
+    <div class="income-input">
+        What is your annual household income?
+    </div>
+    <div class="income-slider">
+        <i>insert income slider here</i>
+    </div>
+
+    <select class="drug">
+        <option disabled selected>Select a medicine</option>
+      </select>
+
+    <button type="button" id="result">Click Me!</button>
+
+    <div class="island-intro hide">
+        For the cost of one year's treatment of <span class="selected-drug"></span>, you could buy these private islands:
+        <div class="islands"></div>
+    </div>
+
+    <div class="blurb hide">
+        <div id="zolgensma about">
+            <p>
+                As of 2021, Zolgensma is the most expensive drug in the United States. It is a $2.1 million dollar gene therapy treatment for children with spinal muscular atrophy (SMA) - childhood disorder that causes muscular erosion that can lead to lung infections
+                and muscle weakness. 1 in 50 (6.6 million) Americans are genetic carriers of SMA and don't know it. The disease affects 1 in 11,000 babies born each year. The odds of a child being born with SMA are higher than the odds of being struck
+                by lightning (1 in 500,000). Children who have been treated with Zolgensma are effectively cured of SMA; however, neither insurers nor patients can afford its price tag. AveXis (a Novartis subsidiary) offers insurers an annual payment
+                plan of $425,000 over 5 years to pay for treatment.
+            </p>
+        </div>
+    </div>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="app.js"></script>
+    <script src="jquery.min.js"></script>
+    <script src="rangeslider.min.js"></script>
+</body>
+
+</html>
