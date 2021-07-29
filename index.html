@@ -4,57 +4,104 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Medicines are not Luxury Goods</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
-    <h1>
-        <center>The Cost of Life-Saving Medicines</center>
-    </h1>
-    <div class="income-input">
-        What is your annual household income?
-    </div>
-    <div class="income-slider">
-        <i>insert income slider here</i>
-    </div>
-
-    <select class="drug">
-        <option disabled selected>Select a medicine</option>
-      </select>
-
-    <button type="button" id="result">Click Me!</button>
-
-    <div class="island-intro hide">
-        For the cost of one year's treatment of <span class="selected-drug"></span> (<span class="selection-annualcost"></span>), you could buy these private islands:
-        <div class="islands">
-
-            <!-- <div class="islandName"></div>
-            <div class="islandImage"></div>
-            <div class="islandPrice"></div>
-            <div class="islandAcreage"></div>
-            <div class="islandTags"></div> -->
+    <div class='container-fluid'>
+        <div class='row'>
+            <h1>The Cost of Life-Saving Medicines</h1>
         </div>
-    </div>
-
-    <div class="blurb hide">
-        <div id="zolgensma about">
-            <p>
-                As of 2021, Zolgensma is the most expensive drug in the United States. It is a $2.1 million dollar gene therapy treatment for children with spinal muscular atrophy (SMA) - childhood disorder that causes muscular erosion that can lead to lung infections
-                and muscle weakness. 1 in 50 (6.6 million) Americans are genetic carriers of SMA and don't know it. The disease affects 1 in 11,000 babies born each year. The odds of a child being born with SMA are higher than the odds of being struck
-                by lightning (1 in 500,000). Children who have been treated with Zolgensma are effectively cured of SMA; however, neither insurers nor patients can afford its price tag. AveXis (a Novartis subsidiary) offers insurers an annual payment
-                plan of $425,000 over 5 years to pay for treatment.
-            </p>
+        <div class='container-fluid'>
+            <div class='row'>
+                <div class="col-md-12">
+                    <p class="lead">
+                        What is your annual household income?
+                    </p>
+                    <input id="userAnnualIncome" class="form-control-sm" type="number" value="">
+                </div>
+            </div>
+            <div class='row'>
+                <div class="col-md-12">
+                    <p class="lead">
+                        Select a medicine below
+                    </p>
+                </div>
+                <div class="col-md-12">
+                    <select class="drug">
+                        <option disabled selected>Medicine</option>
+                    </select>
+                </div>
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-primary ms-1">Click Me!</button>
+                </div>
+            </div>
         </div>
-        <div class="affordability hide">
-            <p>Based on your annual income, you would need to work for <span class="nonadjusted_yrsworked"></span></p>, forgoing all other needs to pay for treatment.
+        <div class='row'>
+            <div class="island-intro hide">
+                <p class="lead">
+                    For the cost of one year's treatment of <span class="selected-drug"></span> (<span class="selection-annualcost"></span>), you could buy this private island:</p>
+                <div class='row'>
+                    <div class="col-sm-6">
+                        <div class="card-group">
+                            <div class="card border-primary h-100">
+                                <div class="card-body d-flex flex-column align-items-start">
+                                    <h4 class="card-title text-primary ng-binding" ng-bind="'Font ' + selected.palette.fonts.headings">
+                                        <div class="islandName"></div>
+                                    </h4>
+                                    <h5 class="card-subtitle text-muted ng-binding" ng-bind="'Font ' + selected.palette.fonts.headings">
+                                        <div class="islandRegion"></div>
+                                    </h5>
+                                    <img src="" class="card-img-bottom" alt="...">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <div class="islandPrice"></div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="islandAcreage"></div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="islandTags"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card border-danger">
+                            <div class="card-body d-flex flex-column h-100">
+                                <p class="lead card-text">
+                                    Based on your annual income, you would need to work for <b><span class="nonadjusted_yrsworked"> </span></b>, forgoing all other needs to pay for a single year's treatment of <b><span class="affordability-selected-drug"></span></b>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class='row'>
+            <div class="blurb hide">
+                <div id="zolgensma about">
+                    <p>
+                        As of 2021, Zolgensma is the most expensive drug in the United States. It is a $2.1 million dollar gene therapy treatment for children with spinal muscular atrophy (SMA) - childhood disorder that causes muscular erosion that can lead to lung infections
+                        and muscle weakness. 1 in 50 (6.6 million) Americans are genetic carriers of SMA and don't know it. The disease affects 1 in 11,000 babies born each year. The odds of a child being born with SMA are higher than the odds of being
+                        struck by lightning (1 in 500,000). Children who have been treated with Zolgensma are effectively cured of SMA; however, neither insurers nor patients can afford its price tag. AveXis (a Novartis subsidiary) offers insurers an
+                        annual payment plan of $425,000 over 5 years to pay for treatment.
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="app.js"></script>
-    <!-- <script src="jquery.min.js"></script>
-    <script src="rangeslider.min.js"></script> -->
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <!-- <script src="rangeslider.min.js"></script> -->
 </body>
 
 </html>
