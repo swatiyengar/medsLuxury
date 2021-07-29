@@ -94,8 +94,9 @@ Promise.all([
                 islandAcreage = randomIsland['acreage'],
                 islandTag = randomIsland['tags']
 
-            console.log(islandName)
-                // console.log(islandGroup)
+            console.log(randomIsland['name'])
+
+            // console.log(islandGroup)
 
             //Group of nominations to which different elements are added
             const group = d3.select('.nominations-sentence')
@@ -109,19 +110,23 @@ Promise.all([
 
             d3.select('.islands')
                 //Selects nomination class from HTML again (grab everything that is the class of nomination) - every span gets a row of the data
-                .selectAll('.islands')
-                //Tells d3 what data is about to be bound
-                .data(randomIsland)
+
+            //Tells d3 what data is about to be bound
+            .data(randomIsland)
+                .enter()
+                .append("text")
+                .attr('class')
+                .text(randomIsland['name'])
                 //Creates the selection - are some of the data points lonely? only affects the new
                 //    .enter()
                 //Updates the selection such that the correct data elements appear - if lonely, add a span
                 //    .append('span')
                 //    .join removes the need for enter/append unless transitions are involved
-                .join('class')
-                //  gives the data a class
-                .attr('class', 'islandName')
-                //  tells the page to the display an element of the data
-                .text(d => d.randomIsland);
+                // .join('class')
+                // //  gives the data a class
+                // .attr('class', 'islandName')
+                // //  tells the page to the display an element of the data
+                // .text(d => d.randomIsland);
 
 
             // //  Select the element with the class movie
