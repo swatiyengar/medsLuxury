@@ -6,6 +6,15 @@ Promise.all([
     let drug
     let ac
 
+    var formatComma = d3.format(","),
+        formatDecimal = d3.format(".1f"),
+        formatDecimalComma = d3.format(",.2f"),
+        formatSuffix = d3.format("s"),
+        formatSuffixDecimal1 = d3.format(".1s"),
+        formatSuffixDecimal2 = d3.format(".2s"),
+        formatMoney = function(d) { return "$" + formatComma(d); },
+        formatPercent = d3.format(",.2%");
+
     const dataRx = data[0]
     const dataIsland = data[1]
 
@@ -41,6 +50,7 @@ Promise.all([
             console.log(drug)
             d3.select('.selected-drug').text(drug)
 
+
             //save annualcost to variable
             dataRx.map(function(d) {
                 if (d['drug'] === drug) {
@@ -48,6 +58,13 @@ Promise.all([
                     return ac
                 }
             })
+
+            // const formatMoney = function(d) { return "$" + formatDecimalComma(d); }
+
+            d3.select('.selection-annualcost').text(ac).text(function() { return formatMoney(ac); })
+
+
+
             console.log(ac)
                 //Filter island data sold at a price less than annualcost variable
             let filtered = dataIsland.filter(function(d) {
@@ -62,16 +79,57 @@ Promise.all([
             console.log(randomIsland)
 
             // d3 group the information about these islands where:
-            islandName = randomIsland['name'];
-            islandRegion = randomIsland['region'];
-            islandPhoto = randomIsland['image']; //browser should load photo
-            islandAcreage = randomIsland['acreage']
-            islandTag = randomIsland['tags']
+            // let islandGroup = {
+            //     islandName: randomIsland['name'],
+            //     islandRegion: randomIsland['region'],
+            //     islandPhoto: randomIsland['image'], //browser should load photo
+            //     islandAcreage: randomIsland['acreage'],
+            //     islandTag: randomIsland['tags']
+            // }
+
+            // d3 group the information about these islands where:
+            islandName = randomIsland['name'],
+                islandRegion = randomIsland['region'],
+                islandPhoto = randomIsland['image'], //browser should load photo
+                islandAcreage = randomIsland['acreage'],
+                islandTag = randomIsland['tags']
+
             console.log(islandName)
-            console.log(islandAcreage)
+                // console.log(islandGroup)
+
+            //Group of nominations to which different elements are added
+            const group = d3.select('.nominations-sentence')
 
 
+            //Selects nomination class from HTML
+            //     d3.select('.nominations-sentence')
+            //     .selectAll('.nomination')
+            //Removes existing elemnts at each click
+            //     .remove()
+
+            d3.select('.islands')
+                //Selects nomination class from HTML again (grab everything that is the class of nomination) - every span gets a row of the data
+                .selectAll('.islands')
+                //Tells d3 what data is about to be bound
+                .data(randomIsland)
+                //Creates the selection - are some of the data points lonely? only affects the new
+                //    .enter()
+                //Updates the selection such that the correct data elements appear - if lonely, add a span
+                //    .append('span')
+                //    .join removes the need for enter/append unless transitions are involved
+                .join('class')
+                //  gives the data a class
+                .attr('class', 'islandName')
+                //  tells the page to the display an element of the data
+                .text(d => d.randomIsland);
+
+
+            // //  Select the element with the class movie
+            // d3.select('.movie')
+            //     //  And set the text as the name of the first element
+            //     .text(winner[0].Name);
         })
+
 
 
     // d3 select <div class=islands> and append the island group information there
