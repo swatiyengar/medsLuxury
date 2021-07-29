@@ -34,33 +34,12 @@ Promise.all([
     d3.select('button')
         //give it an on click event
         .on('click', function() {
-            //Select island_intro
-            d3.select('.island-intro')
-                //Remove the class hide
-                .classed('hide', false)
-                //Select blurb sentence
-            d3.select('.blurb')
-                //Remove the class hide
-                .classed('hide', false)
-                //Select blurb sentence
-            d3.select('.affordability')
-                //Remove the class hide
-                .classed('hide', false)
-                //Select selected drug (span) class
-            d3.select('.selected-drug')
-                //Remove the class hide
-                .classed('hide', false)
-                //insert selected-drug in the span 
-                //!!! ISSUE: the rest of the list ends up falling below the p tags
-                .data(options)
-                .join('option')
-                .attr('class', 'opt')
-                .attr('value', d => d)
-                .text(d => d);
-
-            //save drug name for next d3 calculation
+            //Selects island_intro and the blurb and hides
+            d3.selectAll('.island-intro, .blurb, .affordability').classed('hide', false)
+                //save drug name for next d3 calculation
             drug = d3.select('.drug').node().value
             console.log(drug)
+            d3.select('.selected-drug').text(drug)
 
             //save annualcost to variable
             dataRx.map(function(d) {
@@ -70,22 +49,30 @@ Promise.all([
                 }
             })
             console.log(ac)
+                //Filter island data sold at a price less than annualcost variable
+            let filtered = dataIsland.filter(function(d) {
+                if (+d['price'] <= ac) {
+                    return d
+                }
+            })
+            console.log(filtered)
+
+            //choose one random island instead of listing all of them
+            let randomIsland = filtered[Math.floor(Math.random() * filtered.length)];
+            console.log(randomIsland)
+
+            // d3 group the information about these islands where:
+            islandName = randomIsland['name'];
+            islandRegion = randomIsland['region'];
+            islandPhoto = randomIsland['image']; //browser should load photo
+            islandAcreage = randomIsland['acreage']
+            islandTag = randomIsland['tags']
+            console.log(islandName)
+            console.log(islandAcreage)
+
+
         })
 
-    //Filter island data sold at a price less than annualcost variable
-    dataIsland.map(function(d) {
-        if (d['price'] <= ac) {
-            dataIsland.map()
-        }
-    })
-    console.log(dataIsland)
-
-    // d3 group the information about these islands where:
-    islandName = dataIsland['name'];
-    islandRegion = dataIsland['region'];
-    islandPhoto = dataIsland['image']; //browser should load photo
-    islandAcreage = dataIsland['acreage']
-    islandTag = dataIsland['tags']
 
     // d3 select <div class=islands> and append the island group information there
 
