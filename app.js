@@ -101,6 +101,10 @@ Promise.all([
             console.log(nonadjusted_yrsworked)
 
             d3.select('.nonadjusted_yrsworked').text(function() { return formatDecimal(nonadjusted_yrsworked) + " years"; })
+            d3.selectAll('.blurb').classed('hide', false)
 
+            if (drug == 'Zolgensma') {
+                d3.select('#zolgensma').classed('hide', false)
+            }
         })
 })
