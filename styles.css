@@ -596,7 +596,12 @@ select {
 .card-img,
 .card-img-bottom {
     border-bottom-right-radius: calc(.25rem - 3px);
-    border-bottom-left-radius: calc(.25rem - 3px)
+    border-bottom-left-radius: calc(.25rem - 3px);
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    display: flex;
 }
 
 .card-group>.card {

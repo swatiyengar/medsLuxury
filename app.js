@@ -45,7 +45,8 @@ Promise.all([
         .on('click', function() {
             //Selects island_intro and the blurb and hides
             d3.selectAll('.island-intro').classed('hide', false)
-                //save drug name for next d3 calculation
+
+            //save drug name for next d3 calculation
             drug = d3.select('.drug').node().value
             console.log(drug)
             d3.select('.selected-drug').text(drug)
@@ -101,6 +102,7 @@ Promise.all([
             console.log(nonadjusted_yrsworked)
 
             d3.select('.nonadjusted_yrsworked').text(function() { return formatDecimal(nonadjusted_yrsworked) + " years"; })
+                // d3.selectAll('.blurb').remove()
             d3.selectAll('.blurb').classed('hide', false)
 
             // if (drug == 'Zolgensma') {
