@@ -103,6 +103,19 @@ Promise.all([
 
             d3.select('.nonadjusted_yrsworked').text(function() { return formatDecimal(nonadjusted_yrsworked) + " years"; })
 
+            let housing = .328
+            let transportation = .159
+            let groceries = .073
+            let clothing = .031
+            let education = 0.023
+            let insurance = .119
+            let adjustments = housing + transportation + groceries + clothing + education + insurance
+            console.log(adjustments)
+            console.log(1 - adjustments)
+            let adjusted_yrsworked = (ac / (annualIncome * (1 - adjustments)))
+            console.log('adjusted' + adjusted_yrsworked)
+            d3.select('.adjusted_yrsworked').text(function() { return formatDecimal(adjusted_yrsworked) + " years"; })
+
             d3.selectAll('.blurb').classed('hide', false)
 
             // d3.selectAll(className).remove()
