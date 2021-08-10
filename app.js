@@ -118,10 +118,11 @@ Promise.all([
 
             d3.selectAll('.blurb').classed('hide', false)
 
-            // d3.selectAll(className).remove()
+
             let className = `.${drug.toLowerCase()}`
             className = "." + drug.toLowerCase()
             console.log(className)
+
             d3.selectAll(className).classed('hide', false)
         })
 })

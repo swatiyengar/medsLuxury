@@ -69,6 +69,10 @@
     font-size: .75rem;
 }
 
+.hide {
+    display: none;
+}
+
 *,
 *::before,
 *::after {
