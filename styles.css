@@ -55,6 +55,20 @@
     font-size: 1rem;
 }
 
+.source {
+    margin-top: 4rem;
+    width: auto;
+    margin: auto;
+    font-size: .75rem;
+}
+
+.source-ol {
+    margin-top: 4rem;
+    width: auto;
+    margin: auto;
+    font-size: .75rem;
+}
+
 *,
 *::before,
 *::after {
@@ -189,7 +203,7 @@ address {
 
 ol,
 ul {
-    padding-left: 2rem
+    padding-left: 2rem;
 }
 
 ol,
@@ -598,9 +612,7 @@ select {
     border-bottom-right-radius: calc(.25rem - 3px);
     border-bottom-left-radius: calc(.25rem - 3px);
     border-radius: 50%;
-    height: 100px;
-    width: 100px;
-    overflow: hidden;
+    overflow: auto;
     display: flex;
 }
 
