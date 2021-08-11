@@ -122,7 +122,7 @@ Promise.all([
             let className = `.${drug.toLowerCase()}`
             className = "." + drug.toLowerCase()
             console.log(className)
-
+            d3.selectAll('.drug-desc').classed('hide', true)
             d3.selectAll(className).classed('hide', false)
         })
 })
